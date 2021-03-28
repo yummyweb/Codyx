@@ -109,6 +109,8 @@ export const DocumentList = () => {
               <Text textStyle="display.large" fontSize={5}>
                 Your Documents
               </Text>
+              <br />
+              <Button my={4}><a href={info.file} download="document.pdf">Download</a></Button>
               <Box my={5}>
                 <Document file={info.file} onLoadSuccess={onDocumentLoadSuccess}>
                   <Page pageNumber={pageNumber} />
