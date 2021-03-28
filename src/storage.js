@@ -11,6 +11,7 @@ export const defaultInfo = [
     name: '',
     email: '',
     age: '',
+    gender: '',
     id: uuid(),
   },
 ];

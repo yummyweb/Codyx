@@ -10,6 +10,7 @@ export const DocumentList = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
   const [info, setInfo] = useState({});
   const [loading, setLoading] = useState(true);
   const [isPublic, setIsPublic] = useState(false);
@@ -66,6 +67,7 @@ export const DocumentList = () => {
               <Info placeholde="Name" value={info.name} input={name} setInput={setName} />
               <Info placeholder="Email" value={info.email} input={email} setInput={setEmail} />
               <Info placeholder="Age" value={info.age} input={age} setInput={setAge} />
+              <Info placeholder="Gender" value={info.gender} input={gender} setInput={setGender} />
               <Button onClick={() => saveInfo(userSession, { name, email, age }, true)}>
                 Save Info
               </Button>
