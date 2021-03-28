@@ -68,21 +68,29 @@ export const DocumentList = () => {
               <Info placeholder="Email" value={info.email} input={email} setInput={setEmail} />
               <Info placeholder="Age" value={info.age} input={age} setInput={setAge} />
               <Info placeholder="Gender" value={info.gender} input={gender} setInput={setGender} />
-              <Button onClick={() => saveInfo(userSession, { name, email, age }, true)}>
+              <Button onClick={() => saveInfo(userSession, { name, email, age, gender }, true)}>
                 Save Info
               </Button>
             </>
           )}
         </Flex>
-        <hr style={{ marginTop: '20px' }} />
-        <Box my={5}>
-          <Text textStyle="display.large" fontSize={5}>
-            Your QR Code:
-          </Text>
-          <Box my={5}>
-            <QRCode value={getUserData().decentralizedID} />
-          </Box>
-        </Box>
+        {!loading ? (
+          <>
+            <hr style={{ marginTop: '20px' }} />
+            <Box my={5}>
+              <Text textStyle="display.large" fontSize={5}>
+                Your QR Code:
+              </Text>
+              <Box my={5}>
+                <QRCode
+                  value={`{id: ${getUserData().decentralizedID}, name: ${info.name}, email: ${
+                    info.email
+                  }, age: ${info.age}, gender: ${info.gender}`}
+                />
+              </Box>
+            </Box>
+          </>
+        ) : null}
       </Box>
     </Flex>
   );
