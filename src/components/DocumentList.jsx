@@ -5,6 +5,7 @@ import { Info } from './Info';
 import { fetchTasks, saveInfo } from '../storage';
 import Loader from '../loader.gif';
 import QRCode from 'react-qr-code';
+import FileInput from './FileInput';
 
 export const DocumentList = () => {
   const [name, setName] = useState('');
@@ -64,11 +65,12 @@ export const DocumentList = () => {
             <img src={Loader} style={{ height: '50px' }} alt="Loading..." />
           ) : (
             <>
-              <Info placeholde="Name" value={info.name} input={name} setInput={setName} />
+              <Info placeholder="Name" value={info.name} input={name} setInput={setName} />
               <Info placeholder="Email" value={info.email} input={email} setInput={setEmail} />
               <Info placeholder="Age" value={info.age} input={age} setInput={setAge} />
               <Info placeholder="Gender" value={info.gender} input={gender} setInput={setGender} />
-              <Button onClick={() => saveInfo(userSession, { name, email, age, gender }, true)}>
+              <FileInput />
+              <Button my={4} onClick={() => saveInfo(userSession, { name, email, age, gender }, true)}>
                 Save Info
               </Button>
             </>
